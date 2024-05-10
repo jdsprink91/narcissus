@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "MaskdownOne";
+  src: url("/fonts/MaskdownOne-BWV7V.otf") format("opentype");
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  margin: 0;
+}
+

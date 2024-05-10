@@ -1,0 +1,102 @@
+---
+import "modern-normalize/modern-normalize.css";
+import "../style/index.css";
+
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<style>
+  html {
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  @media (max-width: 786px) {
+    body {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  .page-container {
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+
+    height: 100%;
+    max-width: 30rem;
+  }
+
+  .title-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .subtitle {
+    margin-top: 2rem;
+  }
+
+  nav {
+    margin-top: 1.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  nav > a {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    text-decoration: none;
+    color: black;
+  }
+
+  nav > a:not(:last-child) {
+    border-right: 2px solid black;
+  }
+</style>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- replace this is an image, most likely -->
+      <div class="title-container">
+        <p class="title">Narcissus</p>
+        <p class="subtitle">People writing about themselves for fun.</p>
+      </div>
+      <nav>
+        <a href="">Home</a>
+        <a href="search">Search</a>
+        <a href="about">About</a>
+      </nav>
+      <div class="content-container">
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>
