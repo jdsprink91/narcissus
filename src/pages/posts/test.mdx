@@ -7,6 +7,7 @@ author: "Jason & Ashley"
 tags: ["flowers", "looking at ourselves", "kewt people"]
 ---
 
+import { Image } from "astro:assets";
 import artichoke from "../../assets/artichoke.jpg";
 import flower from "../../assets/IMG_5122.jpg";
 import ugh from "../../assets/IMG_5124.jpg";
@@ -25,19 +26,19 @@ Flowers are kewl.
 Below are some kewl flowers
 
 <figure>
-  <img src={artichoke.src} alt="an artichoke" />
+  <Image src={artichoke} alt="an artichoke" width="800" />
   <figcaption>An Artichoke</figcaption>
 </figure>
 <figure>
-  <img src={flower.src} alt="a zennia" />
+  <Image src={flower} alt="a zennia" width="800" />
   <figcaption>purple zennia</figcaption>
 </figure>
 <figure>
-  <img src={ugh.src} alt="a flower" />
+  <Image src={ugh} alt="a flower" width="800" />
   <figcaption>orange zennia</figcaption>
 </figure>
 <figure>
-  <img src={foo.src} alt="a loofah" />
+  <Image src={foo} alt="a loofah" width="800" />
   <figcaption>Loooooooofah</figcaption>
 </figure>
 
