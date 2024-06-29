@@ -1,41 +1,86 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import dayjs from "dayjs";
 
 const { frontmatter } = Astro.props;
 ---
 
 <!--
-  1. max width of images and center them
-  2. make captions for images italicized and centered
-  3. Spacing for everything
-  4. link styles
-  5. still need to figure out fonts
-
+  1. link styles
+  2. tag styles
 -->
 <style is:global>
-  .blog-post {
-    figure {
-      max-width: 40rem;
-      margin-left: auto;
-      margin-right: auto;
+  .blog-post-header {
+    margin-top: clamp(1rem, 3vw, 2rem);
+
+    h1 {
+      font-size: 2.5rem;
+    }
+    .meta {
+      margin-top: 0.5rem;
     }
 
-    @media (max-width: 786px) {
-      figure {
-        max-width: 100%;
-      }
+    time {
+      font-size: 0.875rem;
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 0.25rem;
+      padding: 0;
+    }
+
+    li {
+      font-size: 0.875rem;
+    }
+  }
+
+  .blog-post-body {
+    margin-top: clamp(0.75rem, 3vw, 1.5rem);
+    display: grid;
+    grid-gap: 1.5rem;
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     img {
       max-width: 100%;
       height: 100%;
     }
+
+    figcaption {
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    * + h2 {
+      margin-top: clamp(0.5, 3vw, 1rem);
+    }
   }
 </style>
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <div class="blog-post">
+  <div class="blog-post-header">
     <h1>{frontmatter.title}</h1>
+    <div class="meta">
+      <p>{frontmatter.author}</p>
+      <time>{dayjs(frontmatter.pubDate).format("MMMM D, YYYY")}</time>
+      <ul>
+        {
+          frontmatter.tags.map((tag) => {
+            return <li>{tag}</li>;
+          })
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="blog-post-body">
     <slot />
   </div>
 </BaseLayout>
