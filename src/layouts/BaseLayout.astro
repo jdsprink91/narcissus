@@ -1,11 +1,18 @@
 ---
 import "modern-normalize/modern-normalize.css";
+import NavLink from "../components/NavLink.astro";
 
 interface Props {
   pageTitle: string;
 }
 
 const { pageTitle } = Astro.props;
+
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Posts", href: "/posts" },
+  { label: "About", href: "/about" },
+];
 ---
 
 <style is:global>
@@ -73,54 +80,45 @@ const { pageTitle } = Astro.props;
   }
 
   nav {
-    margin-top: 1.5rem;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    border: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
   }
 
-  nav > a {
-    text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-
-    text-decoration: none;
-    color: black;
-  }
-
-  nav > a:not(:last-child) {
-    border-right: 2px solid black;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding-left: 0;
   }
 
   @media (max-width: 786px) {
     nav {
-      border: 0;
       margin-top: 1rem;
     }
 
-    nav > a {
-      text-decoration: underline;
-    }
-
-    nav > a:not(:last-child) {
-      border-right: 0;
-    }
-
-    nav > a:first-child {
-      text-align: left;
+    ul {
       padding-left: 0.5rem;
-    }
-
-    nav > a:last-child {
-      text-align: right;
       padding-right: 0.5rem;
     }
   }
 
   .content-container {
     padding-bottom: 1rem;
+    margin-top: clamp(1rem, 3vw, 2rem);
+  }
+
+  @media (max-width: 786px) {
+    .content-container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
   }
 </style>
 
@@ -169,15 +167,18 @@ const { pageTitle } = Astro.props;
         </svg>
         <p class="subtitle">People writing about themselves for themselves.</p>
       </div>
-      <!--
-        TODO:
-        1. wrap in list
-        2. figure out what these hecking things look like
-      -->
       <nav>
-        <a href="/">Home</a>
-        <a href="/posts">Posts</a>
-        <a href="/about">About</a>
+        <ul>
+          {
+            navLinks.map((nl) => {
+              return (
+                <li>
+                  <NavLink {...nl} />
+                </li>
+              );
+            })
+          }
+        </ul>
       </nav>
       <div class="content-container">
         <slot />
