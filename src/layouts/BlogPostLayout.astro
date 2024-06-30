@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Tag from "../components/Tag.astro";
 import dayjs from "dayjs";
 
 const { frontmatter } = Astro.props;
@@ -7,11 +8,9 @@ const { frontmatter } = Astro.props;
 
 <!--
   1. link styles
-  2. tag styles
 -->
 <style is:global>
   .blog-post-header {
-
     h1 {
       font-size: 2.5rem;
     }
@@ -26,14 +25,11 @@ const { frontmatter } = Astro.props;
     }
 
     ul {
+      margin-top: 0.25rem;
       display: flex;
       list-style: none;
       gap: 0.25rem;
       padding: 0;
-    }
-
-    li {
-      font-size: 0.875rem;
     }
   }
 
@@ -73,7 +69,11 @@ const { frontmatter } = Astro.props;
       <ul>
         {
           frontmatter.tags.map((tag) => {
-            return <li>{tag}</li>;
+            return (
+              <li>
+                <Tag>{tag}</Tag>
+              </li>
+            );
           })
         }
       </ul>
