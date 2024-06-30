@@ -120,6 +120,10 @@ const navLinks = [
       padding-right: 0.5rem;
     }
   }
+
+  .rss-icon {
+    width: clamp(1rem, 3vw, 2rem);
+  }
 </style>
 
 <html lang="en">
@@ -135,6 +139,12 @@ const navLinks = [
     <link
       href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Narcissus"
+      href={new URL("rss.xml", Astro.site)}
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -173,11 +183,28 @@ const navLinks = [
             navLinks.map((nl) => {
               return (
                 <li>
-                  <NavLink {...nl} />
+                  <NavLink href={nl.href}>{nl.label}</NavLink>
                 </li>
               );
             })
           }
+          <li>
+            <NavLink href="/rss.xml" ariaLabel="RSS">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 64 64"
+                class="rss-icon"
+              >
+                <path
+                  d="M8 4v10c23.196 0 42 18.804 42 42h10C60 27.281 36.719 4 8 4z"
+                ></path>
+                <path
+                  d="M8 24v10c12.151 0 22 9.849 22 22h10c0-17.674-14.326-32-32-32z"
+                ></path>
+                <circle cx="11" cy="53" r="7"></circle>
+              </svg>
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div class="content-container">
