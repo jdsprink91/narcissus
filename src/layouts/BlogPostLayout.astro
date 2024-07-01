@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Tag from "../components/Tag.astro";
+import TagList from "../components/TagList.astro";
 import dayjs from "dayjs";
 
 const { frontmatter } = Astro.props;
@@ -19,14 +19,6 @@ const { frontmatter } = Astro.props;
       font-size: 0.875rem;
       font-style: italic;
       margin-top: 0.25rem;
-    }
-
-    ul {
-      margin-top: 0.25rem;
-      display: flex;
-      list-style: none;
-      gap: 0.25rem;
-      padding: 0;
     }
   }
 
@@ -67,17 +59,7 @@ const { frontmatter } = Astro.props;
     <div class="meta">
       <p>{frontmatter.author}</p>
       <time>{dayjs(frontmatter.pubDate).format("MMMM D, YYYY")}</time>
-      <ul>
-        {
-          frontmatter.tags.map((tag) => {
-            return (
-              <li>
-                <Tag>{tag}</Tag>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <TagList tags={frontmatter.tags} />
     </div>
   </div>
   <div class="blog-post-body">
