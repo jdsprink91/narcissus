@@ -10,5 +10,6 @@ A blog for plants, food, and pets
 - [x] tag page
 - [ ] about page
 - [ ] home page
+- [ ] check spacing on all pages
 - [ ] buy domain
 - [ ] netlify account
