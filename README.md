@@ -6,7 +6,7 @@ A blog for plants, food, and pets
 - [x] figure out blog layout will need to include things for: images, headers, videos
 - [x] transfer over to collections API
 - [x] Add RSS feed
-- [ ] blog post archive page
+- [x] blog post archive page
 - [ ] tag page
 - [ ] about page
 - [ ] home page
