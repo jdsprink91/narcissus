@@ -1,19 +1,39 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostList from "../../components/PostList.astro";
+
+interface Props {
+  postList: CollectionEntry<"posts">[];
+}
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
+  const blogEntriesByTags: Record<string, CollectionEntry<"posts">[]> = {};
+  for (const blogEntry of blogEntries) {
+    const { tags } = blogEntry.data;
+    for (const tag of tags) {
+      if (tag in blogEntriesByTags) {
+        blogEntriesByTags[tag] = blogEntriesByTags[tag].concat(blogEntry);
+      } else {
+        blogEntriesByTags[tag] = [blogEntry];
+      }
+    }
+  }
+
   return blogEntries
     .flatMap((entry) => entry.data.tags)
     .map((tag) => ({
       params: { tag },
+      props: { postList: blogEntriesByTags[tag] },
     }));
 }
 
 const { tag } = Astro.params;
+const { postList } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
   <h1>{tag}</h1>
+  <PostList postList={postList} />
 </BaseLayout>

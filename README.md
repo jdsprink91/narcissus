@@ -7,7 +7,7 @@ A blog for plants, food, and pets
 - [x] transfer over to collections API
 - [x] Add RSS feed
 - [x] blog post archive page
-- [ ] tag page
+- [x] tag page
 - [ ] about page
 - [ ] home page
 - [ ] buy domain

@@ -1,0 +1,55 @@
+---
+import { type CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+import TagList from "./TagList.astro";
+
+interface Props {
+  postList: CollectionEntry<"posts">[];
+}
+
+const { postList } = Astro.props;
+---
+
+<style>
+  ul {
+    margin-top: 1rem;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  h2 > a {
+    color: black;
+  }
+
+  li:not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .author-and-date {
+    display: flex;
+    gap: 0.25rem;
+    font-style: italic;
+  }
+</style>
+
+<ul class="post-list">
+  {
+    postList
+      .sort((left, right) => {
+        return left.data.pubDate > right.data.pubDate ? -1 : 1;
+      })
+      .map((post) => (
+        <li>
+          <h2>
+            <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          </h2>
+          {post.data.description ? <p>{post.data.description}</p> : null}
+          <div class="author-and-date">
+            <time>{dayjs(post.data.pubDate).format("MMMM D, YYYY")}</time>
+            <p> — {post.data.author}</p>
+          </div>
+          <TagList tags={post.data.tags} />
+        </li>
+      ))
+  }
+</ul>
