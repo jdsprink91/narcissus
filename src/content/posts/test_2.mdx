@@ -6,7 +6,7 @@ author: "Jason"
 tags: ["recipe", "eggs", "chips"]
 ---
 
-import { Image } from "astro:assets";
+import NarcImageWithCaption from "../../components/NarcImageWithCaption.astro";
 import artichoke from "../../assets/artichoke.jpg";
 import flower from "../../assets/IMG_5122.jpg";
 import ugh from "../../assets/IMG_5124.jpg";
@@ -24,22 +24,26 @@ Flowers are kewl.
 
 Below are some kewl flowers
 
-<figure>
-  <Image src={artichoke} alt="an artichoke" width="800" />
-  <figcaption>An Artichoke</figcaption>
-</figure>
-<figure>
-  <Image src={flower} alt="a zennia" width="800" />
-  <figcaption>purple zennia</figcaption>
-</figure>
-<figure>
-  <Image src={ugh} alt="a flower" width="800" />
-  <figcaption>orange zennia</figcaption>
-</figure>
-<figure>
-  <Image src={foo} alt="a loofah" width="800" />
-  <figcaption>Loooooooofah</figcaption>
-</figure>
+<NarcImageWithCaption
+  src={artichoke}
+  alt="an artichoke"
+  caption="An Artichoke"
+/>
+<NarcImageWithCaption
+  src={flower}
+  alt="a zennia"
+  caption="Purple Zennia"
+/>
+<NarcImageWithCaption
+  src={ugh}
+  alt="a flower"
+  caption="orange zennia"
+/>
+<NarcImageWithCaption
+  src={foo}
+  alt="a loofah"
+  caption="Loooooooofah"
+/>
 
 [here is a link to the king](https://en.wikipedia.org/wiki/Monty_Don)
 

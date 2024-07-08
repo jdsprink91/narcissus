@@ -1,7 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import NarcImageWithCaption from "../components/NarcImageWithCaption.astro";
+
+import people from "../assets/people.jpg";
+import pets from "../assets/pets.jpg";
 ---
+
+<style>
+  p {
+    margin-top: 0.5rem;
+  }
+
+  /*this is wrong but I have no idea why it won't work the correct way*/
+  section {
+    > * + * {
+      margin-top: 1.5rem;
+    }
+  }
+</style>
 
 <BaseLayout pageTitle="About">
   <h1>About</h1>
+  <section>
+    <p>
+      This is a blog about Jason and Ashley and their plants, the food they
+      delicately shove in their face, the pets they love and hate, the places
+      they visit, the books they read and all the other stuff that everyone on
+      the internet loves to know.
+    </p>
+    <NarcImageWithCaption
+      src={people}
+      alt="A drawn picture of a couple held up by a left hand"
+      caption="photo-realistic picture of Jason and Ashley"
+    />
+    <NarcImageWithCaption
+      src={pets}
+      alt="A drawn picture of a brown dog sitting to the left of a black cat"
+      caption="photo-realistic picture of Olive and Felix"
+    />
+  </section>
 </BaseLayout>

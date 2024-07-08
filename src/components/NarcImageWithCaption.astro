@@ -1,0 +1,28 @@
+---
+import type { ComponentProps } from "astro/types";
+import NarcImage from "./NarcImage.astro";
+
+interface Props extends ComponentProps<typeof NarcImage> {
+  caption: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<style>
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  figcaption {
+    margin-top: 0.25rem;
+    font-style: italic;
+  }
+</style>
+
+<figure>
+  <NarcImage src={src} alt={alt} />
+  <figcaption>{caption}</figcaption>
+</figure>

@@ -27,22 +27,6 @@ const { frontmatter } = Astro.props;
     display: grid;
     grid-gap: 1.5rem;
 
-    figure {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img {
-      max-width: 100%;
-      height: 100%;
-    }
-
-    figcaption {
-      margin-top: 0.25rem;
-      font-style: italic;
-    }
-
     * + h2 {
       margin-top: clamp(0.5, 3vw, 1rem);
     }

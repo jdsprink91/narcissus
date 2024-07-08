@@ -1,5 +1,5 @@
 # narcissus
-A blog for plants, food, and pets
+A blog for plants, food, pets, books and tech
 
 ## V1 release
 - [x] Choose fonts, colors, logo
@@ -8,8 +8,7 @@ A blog for plants, food, and pets
 - [x] Add RSS feed
 - [x] blog post archive page
 - [x] tag page
-- [ ] about page
-- [ ] home page
-- [ ] check spacing on all pages
+- [x] about page
+- [ ] redirect index to posts page
 - [ ] buy domain
 - [ ] netlify account
