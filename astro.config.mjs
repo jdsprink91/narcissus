@@ -12,4 +12,7 @@ export default defineConfig({
   },
   integrations: [mdx()],
   site: "https://www.narcissus.me",
+  redirects: {
+    "/": "/posts"
+  }
 });

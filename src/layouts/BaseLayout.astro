@@ -9,7 +9,6 @@ interface Props {
 const { pageTitle } = Astro.props;
 
 const navLinks = [
-  { label: "Home", href: "/" },
   { label: "Posts", href: "/posts" },
   { label: "About", href: "/about" },
 ];
@@ -91,11 +90,19 @@ const navLinks = [
   }
 
   ul {
-    display: flex;
+    display: grid;
+    grid: auto-flow / repeat(3, 1fr);
     align-items: center;
-    justify-content: space-between;
     list-style: none;
     padding-left: 0;
+  }
+
+  ul > :not(:first-child):not(:last-child) {
+    justify-self: center;
+  }
+
+  ul > :last-child {
+    justify-self: right;
   }
 
   @media (max-width: 786px) {
