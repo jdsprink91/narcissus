@@ -6,7 +6,6 @@ import PostList from "../components/PostList.astro";
 const postList = await getCollection("posts");
 ---
 
-
 <BaseLayout pageTitle="Posts">
   <h1>Posts</h1>
   <PostList postList={postList} />
