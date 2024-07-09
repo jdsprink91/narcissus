@@ -9,6 +9,9 @@ A blog for plants, food, pets, books and tech
 - [x] blog post archive page
 - [x] tag page
 - [x] about page
-- [ ] redirect index to posts page
+- [x] redirect index to posts page
+- [ ] take new hyper realistic photo of olive and felix
+- [ ] actually write first blog post
+- [ ] make all caps headers for post and about
 - [ ] buy domain
 - [ ] netlify account

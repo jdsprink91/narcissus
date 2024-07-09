@@ -12,7 +12,7 @@ const { src, alt } = Astro.props;
 
 <style>
   .narc-image {
-    max-width: 100%;
+    max-width: min(100%, 450px);
     height: 100%;
   }
 </style>
@@ -21,7 +21,7 @@ const { src, alt } = Astro.props;
   class={"narc-image"}
   src={src}
   alt={alt}
-  width={786}
-  widths={[375, 786]}
-  sizes={`(max-width: 786px) 375px, 786px`}
+  width={450}
+  widths={[375, 450]}
+  sizes={`(max-width: 786px) 375px, 450px`}
 />
