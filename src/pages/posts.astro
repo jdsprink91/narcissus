@@ -6,6 +6,12 @@ import PostList from "../components/PostList.astro";
 const postList = await getCollection("posts");
 ---
 
+<style>
+  h1 {
+    text-transform: uppercase;
+  }
+</style>
+
 <BaseLayout pageTitle="Posts">
   <h1>Posts</h1>
   <PostList postList={postList} />
