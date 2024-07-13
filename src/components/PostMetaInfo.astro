@@ -1,0 +1,29 @@
+---
+import dayjs from "dayjs";
+import TagList from "./TagList.astro";
+
+interface Props {
+  description: string;
+  pubDate: Date;
+  author: string;
+  tags: string[];
+}
+
+const { description, pubDate, author, tags } = Astro.props;
+---
+
+<style>
+  .author-and-date {
+    display: flex;
+    gap: 0.25rem;
+    font-style: italic;
+    font-size: 0.875rem;
+  }
+</style>
+
+<p>{description}</p>
+<div class="author-and-date">
+  <time>{dayjs(pubDate).format("MMMM D, YYYY")}</time>
+  <p>by {author}</p>
+</div>
+<TagList tags={tags} />

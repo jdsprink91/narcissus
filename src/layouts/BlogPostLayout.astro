@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TagList from "../components/TagList.astro";
-import dayjs from "dayjs";
+import PostMetaInfo from "../components/PostMetaInfo.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -11,14 +10,16 @@ const { frontmatter } = Astro.props;
     h1 {
       font-size: 2.5rem;
     }
+
     .meta {
       margin-top: 0.5rem;
     }
 
-    time {
+    .author-and-date {
       font-size: 0.875rem;
       font-style: italic;
-      margin-top: 0.25rem;
+      display: flex;
+      gap: 0.25rem;
     }
   }
 
@@ -26,6 +27,10 @@ const { frontmatter } = Astro.props;
     margin-top: clamp(0.75rem, 3vw, 1.5rem);
     display: grid;
     grid-gap: 1.5rem;
+
+    :not(h1, h2, h3, h4) {
+      line-height: var(--long-form-line-height);
+    }
 
     * + h2 {
       margin-top: clamp(0.5, 3vw, 1rem);
@@ -41,9 +46,12 @@ const { frontmatter } = Astro.props;
   <div class="blog-post-header">
     <h1>{frontmatter.title}</h1>
     <div class="meta">
-      <p>{frontmatter.author}</p>
-      <time>{dayjs(frontmatter.pubDate).format("MMMM D, YYYY")}</time>
-      <TagList tags={frontmatter.tags} />
+      <PostMetaInfo
+        description={frontmatter.description}
+        pubDate={frontmatter.pubDate}
+        author={frontmatter.author}
+        tags={frontmatter.tags}
+      />
     </div>
   </div>
   <div class="blog-post-body">

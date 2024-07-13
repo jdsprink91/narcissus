@@ -13,5 +13,8 @@ A blog for plants, food, pets, books and tech
 - [x] make all caps headers for post and about
 - [ ] take new hyper realistic photo of olive and felix
 - [ ] actually write first blog post
+- [ ] Explore smaller font size for nav
+- [x] fix line heights
+- [x] add description from frontmatter to blog post layout
 - [ ] buy domain
 - [ ] netlify account
