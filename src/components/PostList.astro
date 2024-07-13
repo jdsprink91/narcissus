@@ -23,6 +23,10 @@ const { postList } = Astro.props;
   li:not(:first-child) {
     margin-top: 2rem;
   }
+
+  .meta-wrapper {
+    margin-top: 0.25rem;
+  }
 </style>
 
 <ul class="post-list">
@@ -36,12 +40,14 @@ const { postList } = Astro.props;
           <h2>
             <a href={`/posts/${post.slug}`}>{post.data.title}</a>
           </h2>
-          <PostMetaInfo
+          <div class="meta-wrapper">
+            <PostMetaInfo
             description={post.data.description}
             pubDate={post.data.pubDate}
             author={post.data.author}
             tags={post.data.tags}
-          />
+            />
+          </div>
         </li>
       ))
   }
