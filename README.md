@@ -15,6 +15,6 @@ A blog for plants, food, pets, books and tech
 - [x] Explore smaller font size for nav
 - [x] fix line heights
 - [x] add description from frontmatter to blog post layout
-- [ ] actually write first blog post
+- [x] actually write first blog post
 - [ ] buy domain
 - [ ] netlify account
