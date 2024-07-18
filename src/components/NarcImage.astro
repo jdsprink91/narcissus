@@ -21,7 +21,6 @@ const { src, alt } = Astro.props;
   class={"narc-image"}
   src={src}
   alt={alt}
-  width={450}
-  widths={[375, 450]}
-  sizes={`(max-width: 786px) 375px, 450px`}
+  widths={[375, src.width]}
+  sizes={`(max-width: 786px) 375px, ${src.width}px`}
 />

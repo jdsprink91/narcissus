@@ -16,5 +16,8 @@ A blog for plants, food, pets, books and tech
 - [x] fix line heights
 - [x] add description from frontmatter to blog post layout
 - [x] actually write first blog post
-- [ ] buy domain
+- [x] buy domain
 - [ ] netlify account
+
+## V2 release
+- [ ]
