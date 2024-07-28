@@ -20,4 +20,4 @@ A blog for plants, food, pets, books and tech
 - [ ] netlify account
 
 ## V2 release
-- [ ]
+- [ ] explore better image 

@@ -11,7 +11,7 @@ export default defineConfig({
     assetsInclude: ["**/*.heic"],
   },
   integrations: [mdx()],
-  site: "https://www.narcissus.me",
+  site: "https://www.narcissus.blog",
   redirects: {
     "/": "/posts"
   }

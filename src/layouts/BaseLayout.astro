@@ -1,6 +1,7 @@
 ---
 import "modern-normalize/modern-normalize.css";
 import NavLink from "../components/NavLink.astro";
+import NarcWithWhiteBackground from "../assets/narc_w_flower_white_background.png";
 
 interface Props {
   pageTitle: string;
@@ -173,6 +174,9 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+
+    <!-- for og things -->
+    <meta property="og:image" content={NarcWithWhiteBackground.src} />
   </head>
   <body>
     <div class="page-container">
