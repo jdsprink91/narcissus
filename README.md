@@ -17,7 +17,8 @@ A blog for plants, food, pets, books and tech
 - [x] add description from frontmatter to blog post layout
 - [x] actually write first blog post
 - [x] buy domain
-- [ ] netlify account
+- [x] netlify account
 
 ## V2 release
-- [ ] explore better image 
+- [ ] RSS feed image in feedly
+- [ ] do full post in RSS feed
