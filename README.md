@@ -20,5 +20,7 @@ A blog for plants, food, pets, books and tech
 - [x] netlify account
 
 ## V2 release
+- [ ] fix favicon in chrome
 - [ ] RSS feed image in feedly
 - [ ] do full post in RSS feed
+- [ ] light mode / dark mode
