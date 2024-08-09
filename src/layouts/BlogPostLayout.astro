@@ -10,6 +10,20 @@ const { frontmatter } = Astro.props;
     margin-top: 0.5rem;
   }
 
+  @keyframes link-hover {
+    0% {
+      background-size: 100% 2px;
+    }
+
+    50% {
+      background-size: 0 2px;
+    }
+
+    100% {
+      background-size: 100% 2px;
+    }
+  }
+
   .blog-post-body {
     margin-top: 1.5rem;
     display: grid;
@@ -25,6 +39,14 @@ const { frontmatter } = Astro.props;
 
     a {
       color: black;
+      text-decoration: none;
+      background: linear-gradient(0deg, black, black) no-repeat left bottom;
+      padding-bottom: 2px;
+      background-size: 100% 2px;
+    }
+
+    a:hover {
+      animation: 300ms 1 normal link-hover forwards;
     }
   }
 </style>
