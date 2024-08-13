@@ -36,14 +36,17 @@ export async function GET(context) {
                     content: sanitizeHtml(postHtml, {
                         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
                     }),
+                    customData: `
+                        <media:content
+                            type="image/png"
+                            width="${NarcWithWhiteBackground.width}"
+                            height="${NarcWithWhiteBackground.height}"
+                            medium="image"
+                            url="${context.site + NarcWithWhiteBackground.src}"
+                        />
+                    `,
                 };
             }),
         ),
-        customData: `<media:content
-          type="image/png"
-          width="${NarcWithWhiteBackground.width}"
-          height="${NarcWithWhiteBackground.height}"
-          medium="image"
-          url="${context.site + NarcWithWhiteBackground.src}" />`,
     });
 }
