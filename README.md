@@ -21,8 +21,8 @@ A blog for plants, food, pets, books and tech
 
 ## V2 release
 - [x] fix favicon in chrome
-- [ ] RSS feed image in feedly
-- [ ] do full post in RSS feed
+- [x] RSS feed image in feedly
+- [x] do full post in RSS feed
 
 ## V3 release
 - [ ] subscription??
